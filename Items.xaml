@@ -1,0 +1,30 @@
+﻿<Window x:Class="OutdoorCenterRentals.Items"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OutdoorCenterRentals"
+        mc:Ignorable="d"
+        Title="Items" Height="320" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="itemsDataGrid" Margin="0,0,150,35" IsReadOnly="True">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+        </DataGrid>
+        <Button x:Name="addButton" Content="Add" Margin="0,0,70,139" VerticalAlignment="Bottom" Click="addButton_Click" Height="22" HorizontalAlignment="Right" Width="75"/>
+        <Label Content="Search By:" Margin="0,0,50,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="95" Height="26"/>
+        <RadioButton x:Name="CategoryRadioButton" Content="Category" Margin="0,26,50,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="95" Height="16"/>
+        <RadioButton x:Name="subcategoryRadioButton" Content="Subcategory" Margin="0,42,50,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="95" Height="16"/>
+        <RadioButton x:Name="itemNameRadioButton" Content="Item name" Margin="0,58,50,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="95" Height="16"/>
+        <TextBox x:Name="itemSearchTextBox" Height="23" Margin="0,74,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="135"/>
+        <Button x:Name="searchButton" Content="Search" Margin="0,102,70,0" VerticalAlignment="Top" Click="searchButton_Click" HorizontalAlignment="Right" Width="75" Height="22"/>
+
+    </Grid>
+</Window>

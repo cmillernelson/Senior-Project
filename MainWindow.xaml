@@ -1,0 +1,104 @@
+﻿<Window x:Class="OutdoorCenterRentals.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OutdoorCenterRentals"
+        mc:Ignorable="d"
+        Title="Outdoor Center" Height="696.901" Width="1326.313">
+    <Grid x:Name="windowGrid" Margin="0,0,2,2" RenderTransformOrigin="0.627,0.378">
+        <Grid.Background>
+            <!-- Change opacity when editing form-->
+            <ImageBrush x:Name="psuLogoImageBrush" ImageSource="D:\Senior Project\OutdoorCenterRentals\PSUlogo.jpg" Opacity="100"/>
+        </Grid.Background>
+        <Menu x:Name="topMenu" Height="28" VerticalAlignment="Top" FontSize="18">
+            <MenuItem x:Name="ordersMenuItem" Header="Orders" FontSize="18">
+                <MenuItem x:Name="openOrdersMenuItem" Header="Open" HorizontalAlignment="Left" Width="154" Click="openOrdersMenuItem_Click"/>
+                <MenuItem x:Name="newOrderMenuItem" Header="New" HorizontalAlignment="Left" Width="154" Click="newOrderMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="statisticsMenuItem" Header="Statistics" FontSize="18">
+                <MenuItem x:Name="orderHistoryMenuItem" Header="Order History" HorizontalAlignment="Left" Width="200" Click="orderHistoryMenuItem_Click" IsEnabled="False"/>
+                <MenuItem x:Name="quickStatsMenuItem" Header="Quick Stats" HorizontalAlignment="Left" Width="200" Click="quickStatsMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="inventoryMenuItem" Header="Inventory" FontSize="18" IsEnabled="False">
+                <MenuItem x:Name="allItemsMenuItem" Header="All Items" HorizontalAlignment="Left" Width="175" Margin="0,0,-3,0"/>
+                <MenuItem x:Name="itemsInMenuItem" Header="Items In" HorizontalAlignment="Left" Width="172"/>
+                <MenuItem x:Name="itemsOutMenuItem" Header="Items Out" HorizontalAlignment="Left" Width="172"/>
+                <MenuItem x:Name="itemLookupMenuItem" Header="Lookup" HorizontalAlignment="Left" Width="172"/>
+            </MenuItem>
+            <MenuItem x:Name="emailMenuItem" Header="Email" IsEnabled="False">
+                <MenuItem x:Name="emailRentalAgreementMenuItem" Header="Rental Agreement" Margin="0,0,-56,0"/>
+                <MenuItem x:Name="emailInvoiceMenuItem" Header="Invoice" HorizontalAlignment="Left" Width="177"/>
+            </MenuItem>
+            <MenuItem x:Name="printMenuItem" Header="Print" IsEnabled="False">
+                <MenuItem x:Name="printRentalAgreementMenuItem" Header="Rental Agreement" Margin="0,0,-55,0"/>
+                <MenuItem x:Name="printInvoiceMenuItem" Header="Invoice" HorizontalAlignment="Left" Width="178"/>
+            </MenuItem>
+            <MenuItem x:Name="paymentMenuItem" Header="Payment">
+                <MenuItem x:Name="addPaymentMenuItem" Header="Add Payment" Height="26" Margin="0,0,-37,0" HorizontalAlignment="Left" Width="191" Click="addPaymentMenuItem_Click"/>
+                <MenuItem x:Name="adjustRentalFeeMenuItem" Header="Adjust Rental Fee" HorizontalAlignment="Left" Height="26" Width="236" Margin="0,0,-69,0" FontSize="14" Click="adjustRentalFeeMenuItem_Click"/>
+                <MenuItem x:Name="adjustLateFeeMenuItem" Header="Adjust Late Fee" HorizontalAlignment="Left" Height="26" Width="227" Margin="0,0,-60,0" Click="adjustLateFeeMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="ImportMenuItem" Header="Import">
+                <MenuItem x:Name="importInventoryMenuItem" Header="Inventory" Click="importInventoryMenuItem_Click"/>
+                <MenuItem x:Name="importCustomersMenuItem" Header="Customers" Click="importCustomersMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <!-- Change visibility when editing form -->
+        <Grid x:Name="orderGrid" Margin="0,0,0,1" Visibility="Hidden">
+            <Button x:Name="newCustomerButton" Content="New" HorizontalAlignment="Left" Margin="16,456,0,0" VerticalAlignment="Top" Width="155" RenderTransformOrigin="0.541,1.591" Height="50" FontSize="18" Click="newCustomerButton_Click" TabIndex="11"/>
+            <Button x:Name="editInformationButton" Content="Edit Info" HorizontalAlignment="Left" Margin="171,456,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.541,1.591" Height="50" FontSize="18" Click="editInformationButton_Click" TabIndex="12" IsEnabled="False"/>
+            <TextBox x:Name="customerNameTextBox" HorizontalAlignment="Left" Height="36" Margin="16,45,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="309" FontSize="18" TabIndex="1"/>
+            <TextBox x:Name="phoneTextBox" HorizontalAlignment="Left" Height="36" Margin="16,119,0,0" TextWrapping="Wrap" Text="Phone Number" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="3"/>
+            <TextBox x:Name="cellTextBox" HorizontalAlignment="Left" Height="36" Margin="16,155,0,0" TextWrapping="Wrap" Text="Cell Phone" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="4"/>
+            <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="80" Margin="16,191,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" TabIndex="5"/>
+            <TextBox x:Name="cityTextBox" HorizontalAlignment="Left" Height="36" Margin="16,271,0,0" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="6"/>
+            <TextBox x:Name="stateTextBox" HorizontalAlignment="Left" Height="36" Margin="16,307,0,0" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="7"/>
+            <TextBox x:Name="zipTextBox" HorizontalAlignment="Left" Height="37" Margin="16,343,0,0" TextWrapping="Wrap" Text="Zip Code" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="8"/>
+            <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="36" Margin="16,380,0,0" TextWrapping="Wrap" Text="Email Address" VerticalAlignment="Top" Width="309" IsEnabled="False" FontSize="18" TabIndex="9"/>
+            <TextBox x:Name="customerNotesTextBox" HorizontalAlignment="Left" Margin="10,541,0,10" TextWrapping="Wrap" Width="303" AcceptsReturn="True" AcceptsTab="True" FontSize="18" VerticalScrollBarVisibility="Auto" TabIndex="13" LostFocus="customerNotesTextBox_LostFocus" IsEnabled="False"/>
+            <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Margin="129,416,0,0" VerticalAlignment="Top" Width="196" Height="35" FontSize="18" IsEnabled="False" TabIndex="10">
+                <ComboBoxItem x:Name="STUDENT" Content="STUDENT" HorizontalAlignment="Left" Width="194"/>
+                <ComboBoxItem x:Name="VIP" Content="VIP" HorizontalAlignment="Left" Width="194"/>
+                <ComboBoxItem x:Name="FACULTY" Content="FACULTY" HorizontalAlignment="Left" Width="194"/>
+                <ComboBoxItem x:Name="ALUMNI" Content="ALUMNI" HorizontalAlignment="Left" Width="194"/>
+                <ComboBoxItem x:Name="PUBLIC" Content="PUBLIC" HorizontalAlignment="Left" Width="194"/>
+            </ComboBox>
+            <TextBox x:Name="idTextBox" HorizontalAlignment="Left" Height="38" Margin="16,81,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="309" FontSize="18" LostFocus="idTextBox_LostFocus" TabIndex="2"/>
+            <Grid x:Name="itemsGrid" Margin="500,41,10,174">
+                <Border x:Name="itemsBorder" BorderBrush="Black" BorderThickness="1" Margin="10,32,10,0" ClipToBounds="True">
+                    <DataGrid x:Name="itemsDataGrid" Margin="-1"/>
+                </Border>
+                <CheckBox x:Name="soarCheckBox" Content="SOAR Trip" Margin="0,5,198,0" VerticalAlignment="Top" Height="27" FontSize="18" HorizontalAlignment="Right" Width="105"/>
+                <TextBox x:Name="orderNumberTextBox" Height="32" Margin="0,0,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" FontSize="18" IsEnabled="False"/>
+                <Label x:Name="orderNumberLabel" Content="Order #" Margin="0,-2,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="58" FontSize="18"/>
+                <Button x:Name="addItemButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,0,0,0" FontSize="18" Click="addItemButton_Click"/>
+                <Button x:Name="removeItemButton" Content="Remove" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+                <Label x:Name="orderStatusLabel" Content="Status" HorizontalAlignment="Left" Margin="170,-2,0,0" VerticalAlignment="Top" FontSize="18"/>
+                <TextBox x:Name="orderStatusTextBox" HorizontalAlignment="Left" Height="27" Margin="234,3,0,0" TextWrapping="Wrap" Text="Reserved" VerticalAlignment="Top" Width="101" FontSize="18"/>
+            </Grid>
+            <Button x:Name="completedButton" Content="Completed" HorizontalAlignment="Left" Margin="327,0,0,18" Width="100" VerticalAlignment="Bottom" FontSize="18" Click="completedButton_Click"/>
+            <Button x:Name="returnedButton" Content="Returned" HorizontalAlignment="Left" Margin="327,0,0,53" Width="100" VerticalAlignment="Bottom" FontSize="18" Click="returnedButton_Click"/>
+            <Button x:Name="pickedUpButton" Content="Picked Up" HorizontalAlignment="Left" Margin="327,0,0,88" Width="100" VerticalAlignment="Bottom" FontSize="18" Click="pickedUpButton_Click"/>
+            <Button x:Name="reservedButton" Content="Reserved" HorizontalAlignment="Left" Margin="327,0,0,123" Width="100" VerticalAlignment="Bottom" FontSize="18" Click="reservedButton_Click"/>
+            <DatePicker x:Name="startDatePicker" HorizontalAlignment="Left" Margin="335,64,0,0" VerticalAlignment="Top" Height="37" Width="167" FontSize="18" IsEnabled="False"/>
+            <Label x:Name="startDateLabel" Content="Start Date" HorizontalAlignment="Left" Margin="335,34,0,0" VerticalAlignment="Top" Height="41" Width="103" FontSize="18"/>
+            <Label x:Name="endDateLabel" Content="End Date" HorizontalAlignment="Left" Margin="335,108,0,0" VerticalAlignment="Top" Height="41" Width="95" FontSize="18"/>
+            <DatePicker x:Name="endDatePicker" HorizontalAlignment="Left" Margin="335,138,0,0" VerticalAlignment="Top" Height="37" Width="167" FontSize="18" IsEnabled="False"/>
+            <Label x:Name="customerNotesLabel" Content="Customer Notes" HorizontalAlignment="Left" Margin="10,511,0,0" VerticalAlignment="Top" Height="31" Width="151" Padding="5,0" FontSize="18"/>
+            <Label x:Name="orderNotesLabel" Content="Order Notes" Margin="432,0,472,153" Padding="5,0" Height="25" VerticalAlignment="Bottom" FontSize="18"/>
+            <TextBox x:Name="orderNotesTextBox" Margin="432,0,265,15" TextWrapping="Wrap" Height="138" VerticalAlignment="Bottom" AcceptsReturn="True" AcceptsTab="True" FontSize="18" VerticalScrollBarVisibility="Auto" LostFocus="orderNotesTextBox_LostFocus" IsEnabled="False"/>
+            <TextBox x:Name="rentalFeeTextBox" Margin="0,0,21,143" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" FontSize="18" LostFocus="rentalFeeTextBox_LostFocus" IsEnabled="False"/>
+            <Label x:Name="rentalFeeLabel" Content="Rental Fee" Margin="0,0,142,140" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" FontSize="18" Height="38"/>
+            <TextBox x:Name="lateFeeTextBox" Margin="0,0,21,111" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" FontSize="18" LostFocus="lateFeeTextBox_LostFocus" IsEnabled="False"/>
+            <Label x:Name="lateFeeLabel" Content="Late Fee" Margin="0,0,142,107" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="78" FontSize="18" Height="39"/>
+            <TextBox x:Name="totalDueTextBox" Margin="0,0,21,79" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" FontSize="18" IsEnabled="False"/>
+            <Label x:Name="totalDueLabel" Content="Total" Margin="0,0,147,75" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="49" FontSize="18" Height="39"/>
+            <TextBox x:Name="amountPaidTextBox" Margin="0,0,21,47" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" FontSize="18" LostFocus="amountPaidTextBox_LostFocus" IsEnabled="False"/>
+            <Label x:Name="amountPaidLabel" Content="Amount Paid" Margin="0,0,147,46" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Height="39"/>
+            <TextBox x:Name="amountDueTextBox" Margin="0,0,21,15" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" FontSize="18" IsEnabled="False"/>
+            <Label x:Name="amountDueLabel" Content="Amount Due" Margin="0,0,147,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Height="39"/>
+            <Label x:Name="customerStatusLabel" Content="Status" HorizontalAlignment="Left" Margin="70,416,0,0" VerticalAlignment="Top" Height="35" Width="59" FontSize="18"/>
+        </Grid>
+    </Grid>
+</Window>

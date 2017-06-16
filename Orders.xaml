@@ -1,0 +1,30 @@
+﻿<Window x:Class="OutdoorCenterRentals.Orders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OutdoorCenterRentals"
+        mc:Ignorable="d"
+        Title="Orders" Height="338" Width="629.333">
+    <Grid>
+        <DataGrid x:Name="ordersDataGrid" IsReadOnly="true" Margin="0,0,155,0">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+        </DataGrid>
+        <TextBox x:Name="searchTextBox" Height="23" Margin="0,69,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140"/>
+        <RadioButton x:Name="nameRadioButton" Content="Name" HorizontalAlignment="Right" Margin="0,39,102,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="orderNumRadioButton" Content="Order #" HorizontalAlignment="Right" Margin="0,24,93,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="idRadioButton" Content="ID #" HorizontalAlignment="Right" Margin="0,54,112,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="completedCheckBox" Content="Hide Completed" HorizontalAlignment="Right" Margin="0,142,47,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="returnedCheckBox" Content="Hide Returned" HorizontalAlignment="Right" Margin="0,127,56,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="pickedUpCheckBox" Content="Hide Picked Up" HorizontalAlignment="Right" Margin="0,112,52,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="reservedCheckBox" Content="Hide Reserved" HorizontalAlignment="Right" Margin="0,97,57,0" VerticalAlignment="Top"/>
+        <Label x:Name="searchByLabel" Content="Search By:" Margin="0,0,86,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="64"/>
+        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Right" Margin="0,162,75,0" VerticalAlignment="Top" Width="75" Click="searchButton_Click"/>
+        <Button x:Name="openOrderButton" Content="Open" Margin="471,189,75,0" VerticalAlignment="Top" Click="openOrderButton_Click"/>
+
+    </Grid>
+</Window>
